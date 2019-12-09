@@ -151,8 +151,8 @@ if __name__ == '__main__':
         gcnn_models += ['mean_convolution', 'no_prenorm']
 
     elif args.problem == 'cauctions':
-        #instances += [{'type': 'small', 'path': f"data/instances/cauctions/transfer_100_500/instance_{i+1}.lp"} for i in range(20)]
-        #instances += [{'type': 'medium', 'path': f"data/instances/cauctions/transfer_200_1000/instance_{i+1}.lp"} for i in range(20)]
+        instances += [{'type': 'small', 'path': f"data/instances/cauctions/transfer_100_500/instance_{i+1}.lp"} for i in range(20)]
+        instances += [{'type': 'medium', 'path': f"data/instances/cauctions/transfer_200_1000/instance_{i+1}.lp"} for i in range(20)]
         instances += [{'type': 'big', 'path': f"data/instances/cauctions/transfer_300_1500/instance_{i+1}.lp"} for i in range(20)]
         gcnn_models += ['mean_convolution', 'no_prenorm']
 
@@ -171,7 +171,7 @@ if __name__ == '__main__':
 
     branching_policies = []
 
-    SCIP internal brancher baselines
+    #SCIP internal brancher baselines
     for brancher in internal_branchers:
         for seed in seeds:
             branching_policies.append({
@@ -312,4 +312,5 @@ if __name__ == '__main__':
                 m.freeProb()
 
                 print(f"  {policy['type']}:{policy['name']} {policy['seed']} - {nnodes} ({nnodes+2*(ndomchgs+ncutoffs)}) nodes {nlps} lps {stime:.2f} ({walltime:.2f} wall {proctime:.2f} proc) s. {status}")
+
 
